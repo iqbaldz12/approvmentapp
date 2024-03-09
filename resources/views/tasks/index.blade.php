@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Posts - SantriKoding.com</title>
+    <title>Tasks</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 </head>
@@ -16,37 +16,38 @@
         <div class="row">
             <div class="col-md-12">
                 <div>
-                    <h3 class="text-center my-4">Tutorial Laravel 10 untuk Pemula</h3>
-                    <h5 class="text-center"><a href="https://santrikoding.com">www.santrikoding.com</a></h5>
+                    <h3 class="text-center my-4">List Task</h3>
                     <hr>
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
-                        <a href="{{ route('tasks.create') }}" class="btn btn-md btn-success mb-3">TAMBAH POST</a>
+                        <a href="{{ route('tasks.create') }}" class="btn btn-md btn-success mb-3">New Task</a>
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th scope="col">GAMBAR</th>
-                                    <th scope="col">JUDUL</th>
-                                    <th scope="col">CONTENT</th>
-                                    <th scope="col">AKSI</th>
+                                    <th scope="col">No</th>
+                                    <th scope="col">Tasks Name</th>
+                                    <th scope="col">Attachment</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @forelse ($tasks as $taskst)
+                                @forelse ($tasks as $task)
                                     <tr>
                                         <td class="text-center">
-                                            <img src="{{ asset('/storage/tasks/' . $post->image) }}" class="rounded"
-                                                style="width: 150px">
+                                            {{ $loop->iteration }}
                                         </td>
-                                        <td>{{ $post->title }}</td>
-                                        <td>{!! $post->content !!}</td>
+                                        <td>{{ $task->tasks_name }}</td>
+                                        <td>{{ $task->file }}</td>
+                                        <td>{{ @$task->status }}</td>
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
-                                                action="{{ route('tasks.destroy', $post->id) }}" method="POST">
-                                                <a href="{{ route('tasks.show', $post->id) }}"
+                                                action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+                                                <a href="#" class="btn btn-sm btn-dark">Approvement</a>
+                                                <a href="{{ route('tasks.show', $task->id) }}"
                                                     class="btn btn-sm btn-dark">SHOW</a>
-                                                <a href="{{ route('tasks.edit', $post->id) }}"
+                                                <a href="{{ route('tasks.edit', $task->id) }}"
                                                     class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
@@ -56,7 +57,7 @@
                                     </tr>
                                 @empty
                                     <div class="alert alert-danger">
-                                        Data Post belum Tersedia.
+                                        Data Task belum Tersedia.
                                     </div>
                                 @endforelse
                             </tbody>

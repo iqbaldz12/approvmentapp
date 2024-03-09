@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use Illuminate\Support\Facades\Auth;
 
 class TaskController extends Controller
 {
@@ -21,11 +22,31 @@ class TaskController extends Controller
      */
     public function create()
     {
+        return view('tasks.create');
     }
 
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'tasks_name'     => 'required|string',
+            'description'     => 'required|string',
+            'file'     => 'required|file|mimes:pdf',
+        ]);
+
+        //upload file
+        $file = $request->file('file');
+        $file->storeAs('public/tasks', $file->hashName());
+
+        //create tasks
+        Task::create([
+            'tasks_name'     => $request->tasks_name,
+            'description'    => $request->description,
+            'file'          => $file->hashName(),
+            'user_id'       => Auth::user()->id
+        ]);
+
+        //redirect to index
+        return redirect()->route('tasks.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
     /**

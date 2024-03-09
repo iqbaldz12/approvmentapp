@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('task_name');
+            $table->string('tasks_name');
             $table->text('description');
             $table->text('file');
             $table->timestamps();
