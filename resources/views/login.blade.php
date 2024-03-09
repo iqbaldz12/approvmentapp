@@ -18,7 +18,8 @@
                                 @endif
                                 <div class="card-header">
                                     <div class="text-center">
-                                        <img src="{{ asset('image/library.png') }}" class="img-responsive img-body">
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/9/9a/Laravel.svg"
+                                            alt="" srcset="">
                                     </div>
 
                                     <h3 class="text-center font-weight-light my-4">Login</h3>
