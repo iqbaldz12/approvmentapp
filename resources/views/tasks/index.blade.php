@@ -48,8 +48,11 @@
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                 action="{{ route('tasks.destroy', $task->id) }}" method="POST">
                                                 <a href="#" class="btn btn-sm btn-dark">Approvement</a>
-                                                <a href="{{ route('tasks.show', $task->id) }}"
-                                                    class="btn btn-sm btn-dark">SHOW</a>
+                                                <!-- Button trigger modal -->
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#exampleModal">
+                                                    Show
+                                                </button>
                                                 <a href="{{ route('tasks.edit', $task->id) }}"
                                                     class="btn btn-sm btn-primary">EDIT</a>
                                                 @csrf

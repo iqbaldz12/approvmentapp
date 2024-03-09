@@ -19,11 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::post('/proses_login', [LoginController::class, 'proses_login'])->name('proses_login');
-Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');
+Route::post('/proses_login', [LoginController::class, 'proses_login'])->name('proses_login')->middleware('guest');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout')->middleware('auth');
 
-Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index');
+Route::get('/tasks', [TaskController::class, 'index'])->name('tasks.index')->middleware('auth');
 Route::post('/tasks', [TaskController::class, 'store'])->name('tasks.store');
 Route::get('/tasks/create', [TaskController::class, 'create'])->name('tasks.create');
 Route::get('/tasks/{task}', [TaskController::class, 'show'])->name('tasks.show');
