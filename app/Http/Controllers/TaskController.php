@@ -117,6 +117,15 @@ class TaskController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $task = Task::findOrFail($id);
+
+        //delete image
+        Storage::delete('public/tasks/' . $task->file);
+
+        //delete post
+        $task->delete();
+
+        //redirect to index
+        return redirect()->route('tasks.index')->with(['success' => 'Data Berhasil Dihapus!']);
     }
 }

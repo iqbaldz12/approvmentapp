@@ -59,7 +59,7 @@
 
                             <button type="submit" class="btn btn-md btn-primary">Save</button>
                             <button type="reset" class="btn btn-md btn-warning">RESET</button>
-
+                            <a class="btn btn-primary" href="{{ url('/tasks') }}" role="button">Back</a>
                         </form>
                     </div>
                 </div>

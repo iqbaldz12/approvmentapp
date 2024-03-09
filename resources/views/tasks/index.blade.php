@@ -39,7 +39,10 @@
                                             {{ $loop->iteration }}
                                         </td>
                                         <td>{{ $task->tasks_name }}</td>
-                                        <td>{{ $task->file }}</td>
+                                        <td>
+                                            <a href="{{ url('/storage/tasks/' . $task->file) }}" download=""
+                                                target="_blank">file</a>
+                                        </td>
                                         <td>{{ @$task->status }}</td>
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
