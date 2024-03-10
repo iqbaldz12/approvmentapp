@@ -30,9 +30,9 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'tasks_name'     => 'required|string',
+            'tasks_name'      => 'required|string',
             'description'     => 'required|string',
-            'file'     => 'required|file|mimes:pdf',
+            'file'            => 'required|file|mimes:pdf',
         ]);
 
         //upload file
@@ -77,9 +77,9 @@ class TaskController extends Controller
     public function update(Request $request, string $id)
     {
         $this->validate($request, [
-            'tasks_name'     => 'required|string',
+            'tasks_name'      => 'required|string',
             'description'     => 'required|string',
-            'file'     => 'nullable|file|mimes:pdf'
+            'file'            => 'nullable|file|mimes:pdf'
         ]);
 
         $task = Task::findOrFail($id);
