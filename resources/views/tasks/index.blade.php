@@ -8,6 +8,9 @@
     <title>Tasks</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body style="background: lightgray">
@@ -47,11 +50,10 @@
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                 action="{{ route('tasks.destroy', $task->id) }}" method="POST">
-                                                <a href="#" class="btn btn-sm btn-dark">Approvement</a>
-                                                <!-- Button trigger modal -->
-                                                <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-sm btn-dark">SHOW</a>
+                                                <a href="{{ route('tasks.approvement', $task->id) }}" class="btn btn-sm btn-primary">Approvement</a>
+                                                <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-sm btn-info">SHOW</a>
                                                 <a href="{{ route('tasks.edit', $task->id) }}"
-                                                    class="btn btn-sm btn-primary">EDIT</a>
+                                                    class="btn btn-sm btn-warning">EDIT</a>
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
@@ -67,8 +69,6 @@
                         </table>
                         {{ $tasks->links() }}
                     </div>
-                    <a class="btn btn-primary" href="{{ url('/') }}" role="button">Back</a>
-
                 </div>
             </div>
         </div>

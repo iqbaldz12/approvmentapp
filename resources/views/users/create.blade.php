@@ -60,6 +60,7 @@
                                 <label for="role" class="font-weight-bold">Role</label>
                                 <select name="role" id="role" class="form-control">
                                     <option value="">---Choose---</option>
+                                    <option value="employee">Employee</option>
                                     <option value="admin">Admin</option>
                                     <option value="manager">Manager</option>
                                     <option value="directur">Direktur</option>

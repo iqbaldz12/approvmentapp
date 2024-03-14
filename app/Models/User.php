@@ -44,23 +44,4 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function formnotifications(): HasMany
-    {
-        return $this->hasMany(Notification::class, 'from_id');
-    }
-
-    public function tonotifications(): HasMany
-    {
-        return $this->hasMany(Notification::class, 'to_id');
-    }
-
-    public function approvements(): HasMany
-    {
-        return $this->hasMany(Approvement::class, 'approved_by_id');
-    }
-
-    public function tasks(): HasMany
-    {
-        return $this->hasMany(Task::class);
-    }
 }

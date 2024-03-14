@@ -18,14 +18,4 @@ class Task extends Model
         'file',
         'user_id'
     ];
-
-    public function approvements(): HasMany
-    {
-        return $this->hasMany(Approvement::class);
-    }
-
-    public function user(): BelongsTo
-    {
-        return $this->belongsTo(User::class);
-    }
 }
