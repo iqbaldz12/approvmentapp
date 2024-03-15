@@ -20,13 +20,12 @@ class ApprovementController extends Controller
             $step = $approvement->step + 1;
         }
 
-        // Create the approvement only if the user is authenticated
         Approvement::create([
             'task_id' => $task_id,
             'approved_by_id' => Auth::user()->id,
             'step' => $step,
             'status' => $request->status,
-            'notes' => $request->notes,
+            'notes' => $request->note??"-",
         ]);
 
         return redirect('tasks');
