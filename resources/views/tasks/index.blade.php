@@ -79,11 +79,11 @@
                                                     <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
                                                 </form>
                                                 <form>
-                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="approvemenrt{{ $task->id }}" aria-hidden="true">
+                                                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="approvement,{{ $task->id }}" aria-hidden="true">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
                                                                 <div class="modal-header">
-                                                                    <h5 class="modal-title" id="approvemenrt{{ $task->id }}">Approvement</h5>
+                                                                    <h5 class="modal-title" id="approvement,{{ $task->id }}">Approvement</h5>
                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                         <span aria-hidden="true">&times;</span>
                                                                     </button>
@@ -92,7 +92,8 @@
                                                                     <form action="{{ route('tasks.approvement', $task->id) }}" method="POST">
                                                                         @csrf
                                                                         <select class="form-control" name="status">
-                                                                            <option value="approve">Approve</option>
+                                                                            <option value="">Choose Status</option>
+                                                                            <option value="approved">Approved</option>
                                                                             <option value="rejected">Rejected</option>
                                                                             <option value="finished">Finished</option>
                                                                         </select>
