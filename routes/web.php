@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ApprovementController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TaskController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -33,6 +34,8 @@ Route::put('/tasks/{task}', [TaskController::class, 'update'])->name('tasks.upda
 Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.destroy');
 Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
 Route::get('/tasks/{task_id}/approvement', [ApprovementController::class, 'approvement'])->name('tasks.approvement');
+Route::get('/notifications', [NotificationController::class, 'index'])->name('notifications.index')->middleware('auth');
+
 
 
 Route::middleware(['auth', 'Admin'])->group(function () {

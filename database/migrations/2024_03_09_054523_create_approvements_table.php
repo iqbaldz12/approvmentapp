@@ -15,8 +15,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->uuid('task_id');
             $table->foreign('task_id')->references('id')->on('tasks')->onDelete('cascade');
-            $table->uuid('approvement_by_id');
-            $table->foreign('approvement_by_id')->references('id')->on('users')->onDelete('cascade');
+            $table->uuid('approved_by_id');
+            $table->foreign('approved_by_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('step');
             $table->string('status');
             $table->text('notes');
