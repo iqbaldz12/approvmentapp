@@ -18,4 +18,15 @@ class Task extends Model
         'file',
         'user_id'
     ];
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(approvement::class);
+    }
+
+    // Relasi HasMany dengan model Comment
+    public function approvement(): HasMany
+    {
+        return $this->hasMany(approvement::class);
+    }
+
 }

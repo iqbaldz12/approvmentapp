@@ -47,7 +47,7 @@
                                                     target="_blank">file</a>
                                             </td>
                                             <td>
-                                                @if (isset($task->approvements) && count($task->approvements) > 0)
+                                                @if (isset($task->approvements) && count($task->approvements->latest()->first()) > 1)
                                                     @foreach ($task->approvements as $approvement)
                                                         @if ($approvement->status == 'approved')
                                                             <strong style="color: #0c82d6">{{ ucfirst($approvement->status) }}</strong><strong> by {{ ucfirst($approvement->user->username) }}</strong>
@@ -123,7 +123,9 @@
                         </div>
                     </div>
                 </div>
+
             </div>
+            <a class="btn btn-primary" href="{{ url('/') }}" role="button">Back</a>
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
