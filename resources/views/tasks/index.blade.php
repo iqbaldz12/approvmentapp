@@ -48,14 +48,14 @@
                                             </td>
                                             <td>
                                                 @if ($task->approvement()->latest()->first() && $task->approvement()->latest()->first()->status)
-                                                        @if ($task->status == 'approved')
-                                                            <strong style="color: #0c82d6">{{ ucfirst($task->status) }}</strong><strong> by {{ ucfirst($task->user->username) }}</strong>
-                                                        @elseif ($task->status == 'rejected')
-                                                            <strong style="color: #d27070">{{ ucfirst($task->status) }}</strong><strong> by {{ ucfirst($task->user->username) }}</strong>
-                                                        @elseif ($task->status == 'finished')
-                                                            <strong style="color: #7cd274">{{ ucfirst($task->status) }}</strong><strong> by {{ ucfirst($task->user->username) }}</strong>
+                                                        @if ( $task->approvement()->latest()->first()->status == 'approved')
+                                                            <strong style="color: #0c82d6">{{ ucfirst( $task->approvement()->latest()->first()->status) }}</strong><strong> by {{ ucfirst($task->user->username) }}</strong>
+                                                        @elseif ( $task->approvement()->latest()->first()->status == 'rejected')
+                                                            <strong style="color: #d27070">{{ ucfirst($task->approvement()->latest()->first()->status) }}</strong><strong> by {{ ucfirst($task->user->username) }}</strong>
+                                                        @elseif ( $task->approvement()->latest()->first()->status == 'finished')
+                                                            <strong style="color: #7cd274">{{ ucfirst( $task->approvement()->latest()->first()->status) }}</strong><strong> by {{ ucfirst($task->user->username) }}</strong>
                                                         @else
-                                                            <strong>{{ ucfirst($task->status) }}<strong> null</strong></strong>
+                                                        <strong>{{ ucfirst($task->approvement()->latest()->first()->status) }} </strong><strong style="color: #636363">null</strong>
                                                         @endif
                                                 @else
                                                     <strong style="color: #636363">New</strong>
