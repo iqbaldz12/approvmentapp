@@ -47,18 +47,16 @@
                                                     target="_blank">file</a>
                                             </td>
                                             <td>
-                                                @if (isset($task->approvements) && count($task->approvements->latest()->first()) > 1)
-                                                    @foreach ($task->approvements as $approvement)
-                                                        @if ($approvement->status == 'approved')
-                                                            <strong style="color: #0c82d6">{{ ucfirst($approvement->status) }}</strong><strong> by {{ ucfirst($approvement->user->username) }}</strong>
-                                                        @elseif ($approvement->status == 'rejected')
-                                                            <strong style="color: #d27070">{{ ucfirst($approvement->status) }}</strong><strong> by {{ ucfirst($approvement->user->username) }}</strong>
-                                                        @elseif ($approvement->status == 'finished')
-                                                            <strong style="color: #7cd274">{{ ucfirst($approvement->status) }}</strong><strong> by {{ ucfirst($approvement->user->username) }}</strong>
+                                                @if ($task->approvement()->latest()->first() && $task->approvement()->latest()->first()->status)
+                                                        @if ($task->status == 'approved')
+                                                            <strong style="color: #0c82d6">{{ ucfirst($task->status) }}</strong><strong> by {{ ucfirst($task->user->username) }}</strong>
+                                                        @elseif ($task->status == 'rejected')
+                                                            <strong style="color: #d27070">{{ ucfirst($task->status) }}</strong><strong> by {{ ucfirst($task->user->username) }}</strong>
+                                                        @elseif ($task->status == 'finished')
+                                                            <strong style="color: #7cd274">{{ ucfirst($task->status) }}</strong><strong> by {{ ucfirst($task->user->username) }}</strong>
                                                         @else
-                                                            <strong>{{ ucfirst($approvement->status) }}</strong><strong> by {{ ucfirst($approvement->user->username) }}</strong>
+                                                            <strong>{{ ucfirst($task->status) }}<strong> null</strong></strong>
                                                         @endif
-                                                    @endforeach
                                                 @else
                                                     <strong style="color: #636363">New</strong>
                                                 @endif

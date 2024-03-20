@@ -20,13 +20,13 @@ class Task extends Model
     ];
     public function user(): BelongsTo
     {
-        return $this->belongsTo(approvement::class);
+        return $this->belongsTo(User::class);
     }
 
     // Relasi HasMany dengan model Comment
     public function approvement(): HasMany
     {
-        return $this->hasMany(approvement::class);
+        return $this->hasMany(Approvement::class);
     }
 
 }
