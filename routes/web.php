@@ -36,7 +36,6 @@ Route::delete('/tasks/{task}', [TaskController::class, 'destroy'])->name('tasks.
 Route::get('/tasks/{task}/edit', [TaskController::class, 'edit'])->name('tasks.edit');
 Route::post('/tasks/{task_id}/approvement', [ApprovementController::class, 'approvement'])->name('tasks.approvement');
 Route::post('/notifications', [NotificationController::class, 'index'])->name('notifications.index')->middleware('auth');
-Route::post('/tasks/{task_id}/approval', [ApprovalController::class, 'approve'])->middleware('auth', 'role:Director,Manager');
 
 
 Route::middleware(['auth', 'Admin'])->group(function () {

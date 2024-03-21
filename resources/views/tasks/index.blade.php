@@ -24,7 +24,9 @@
                 </div>
                 <div class="card border-0 shadow-sm rounded">
                     <div class="card-body">
+                        @if(auth()->user()->role == 'employee')
                         <a href="{{ route('tasks.create') }}" class="btn btn-md btn-success mb-3">New Task</a>
+                        @endif
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
@@ -43,7 +45,7 @@
                                         </td>
                                         <td>{{ $task->tasks_name }}</td>
                                         <td>
-                                            <a href="{{ url('/storage/tasks/' . $task->file) }}" download=""
+                                            <a href="{{ url('/storage/tasks/' . $task->file) }}" 
                                                 target="_blank">file</a>
                                         </td>
                                         <td>
@@ -67,15 +69,20 @@
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                 action="{{ route('tasks.destroy', $task->id) }}" method="POST">
+                                                @if(auth()->user()->role == 'manager' || auth()->user()->role == 'director')
                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$task->id}}">approvement </button>
-                                                <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-sm btn-info">SHOW</a>
+                                                @endif
+                                                @if(auth()->user()->role == 'employee')
+                                                @if (!@$task->approvement()->latest()->first()->status)
                                                 <a href="{{ route('tasks.edit', $task->id) }}"
                                                     class="btn btn-sm btn-warning">EDIT</a>
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-sm btn-danger">HAPUS</button>
+                                                    @method('DELETE')
+                                                    @endif
+                                                    @endif
+                                                    <a href="{{ route('tasks.show', $task->id) }}" class="btn btn-sm btn-info">SHOW</a>
                                             </form>
-
                                                 <div class="modal fade" id="exampleModal{{$task->id}}" tabindex="-1" aria-labelledby="approvement{{ $task->id }}" aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
