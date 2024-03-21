@@ -22,7 +22,7 @@ class Approvement extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class,'approved_by_id' );
     }
 
     public function approvement(): HasMany

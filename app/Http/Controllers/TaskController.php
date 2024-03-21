@@ -58,7 +58,7 @@ class TaskController extends Controller
     {
 
         $task = Task::findOrFail($id);
-        dd($task->approvement);
+        
         return view('tasks.show', compact('task'));
     }
 
