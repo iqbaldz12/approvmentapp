@@ -97,10 +97,28 @@
                                         <td class="text-center">
                                             <form onsubmit="return confirm('Apakah Anda Yakin ?');"
                                                 action="{{ route('tasks.destroy', $task->id) }}" method="POST">
-                                                @if(auth()->user()->role == 'manager' || auth()->user()->role == 'director')
+                                                
+                                                @if(auth()->user()->role == 'manager')
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$task->id}}">approvement </button>
+                                                @if(@$task->approvement()->latest()->first()->approved_by_id ===  auth()->user()->where('role', 'manager')->first()->id && @$task->approvement()->latest()->first()->status ===  'rejected')
+                                                <a href="{{ route('tasks.edit', $task->id) }}"
+                                                    class="btn btn-sm btn-warning">EDIT</a>
+                                                    @csrf
+                                                @elseif(@$task->approvement()->latest()->first()->approved_by_id ===  auth()->user()->where('role', 'director')->first()->id && @$task->approvement()->latest()->first()->status ===  'rejected')
+                                                <a href="{{ route('tasks.edit', $task->id) }}"
+                                                    class="btn btn-sm btn-warning">EDIT</a>
+                                                    @csrf
+                                                @endif
+                                                @endif
+                                                @if(auth()->user()->role == 'director')
                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$task->id}}">approvement </button>
                                                 @endif
                                                 @if(auth()->user()->role == 'employee')
+                                                @if(@$task->approvement()->latest()->first()->approved_by_id ===  auth()->user()->where('role', 'manager')->first()->id)
+                                                <a href="{{ route('tasks.edit', $task->id) }}"
+                                                    class="btn btn-sm btn-warning">EDIT</a>
+                                                    @csrf
+                                                @endif
                                                 @if (!@$task->approvement()->latest()->first()->status)
                                                 <a href="{{ route('tasks.edit', $task->id) }}"
                                                     class="btn btn-sm btn-warning">EDIT</a>
@@ -124,12 +142,16 @@
                                                             <div class="modal-body">
                                                                 <form action="{{ route('tasks.approvement', $task->id) }}" method="POST">
                                                                     @csrf
-                                                                    <select class="form-control" name="status">
+                                                                    <select class="form-control" name="status" id="status">
                                                                         <option value="">Choose Status</option>
                                                                         <option value="approved">Approved</option>
                                                                         <option value="rejected">Rejected</option>
                                                                         <option value="finished">Finished</option>
                                                                     </select>
+                                                            </div>
+                                                            
+                                                            <div class="modal-body" id="noteSection" style="display: none;">
+                                                                <textarea class="form-control"  name="note" placeholder="Add note"></textarea>
                                                             </div>
 
                                                             <div class="modal-footer">
@@ -154,6 +176,17 @@
                     </div>
                 </div>
             </div>
+            <script>
+                document.getElementById('status').addEventListener('change', function() {
+                    var status = this.value;
+                    var noteSection = document.getElementById('noteSection');
+                    if (status === 'rejected') {
+                        noteSection.style.display = 'block';
+                    } else {
+                        noteSection.style.display = 'none';
+                    }
+                });
+            </script>
 
         </div>
     </div>

@@ -28,6 +28,30 @@
                             <h5> Attachment</h5>
                             <a href="{{ url('/storage/tasks/' . $task->file) }}" 
                                 target="_blank">file</a>
+
+                            <div class="mt-3">
+                                <h5>Status:</h5>
+                                <p class="tmt-3">
+                                    @if ($task->approvement()->latest()->first() && $task->approvement()->latest()->first()->status)
+                                        @if ( $task->approvement()->latest()->first()->status == 'approved')
+                                            <strong style="color: #0c82d6">{{ ucfirst( $task->approvement()->latest()->first()->status) }}</strong><strong> by {{ ucfirst($task->approvement()->latest()->first()->user->username) }}</strong>
+                                        @elseif ( $task->approvement()->latest()->first()->status == 'rejected')
+                                            <strong style="color: #d27070">{{ ucfirst($task->approvement()->latest()->first()->status) }}</strong><strong> by {{ ucfirst($task->approvement()->latest()->first()->user->username) }}</strong>
+                                        @elseif ( $task->approvement()->latest()->first()->status == 'finished')
+                                            <strong style="color: #7cd274">{{ ucfirst( $task->approvement()->latest()->first()->status) }}</strong><strong> by {{ ucfirst($task->approvement()->latest()->first()->user->username) }}</strong>
+                                        @else
+                                            <strong>{{ ucfirst( $task->approvement()->latest()->first()->status) }}<strong> null</strong></strong>
+                                        @endif
+                                    @else
+                                        <strong style="color: #636363">New</strong>
+                                    @endif
+                                </p>
+                            </div>
+
+                            <div class="mt-3">
+                                <h5>Note:</h5>
+                                <textarea class="form-control" readonly>{{ $approvement->notes??'' }}</textarea>
+                            </div>                                
                         </div>
                     </div>
                     <a class="btn btn-primary" href="{{ url('/tasks') }}" role="button">Back</a> 

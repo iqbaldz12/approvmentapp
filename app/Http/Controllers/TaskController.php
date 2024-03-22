@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Approvement;
 
 
 class TaskController extends Controller
@@ -58,8 +59,9 @@ class TaskController extends Controller
     {
 
         $task = Task::findOrFail($id);
+        $approvement = Approvement::where('task_id', $id)->latest()->first();
         
-        return view('tasks.show', compact('task'));
+        return view('tasks.show', compact('task', 'approvement'));
     }
 
     /**
