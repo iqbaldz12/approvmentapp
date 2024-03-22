@@ -46,6 +46,7 @@
                                         <strong style="color: #636363">New</strong>
                                     @endif
                                 </p>
+<<<<<<< HEAD
                                 
                             </div>
                        
@@ -67,6 +68,14 @@
                               
                     
                             </table>                  
+=======
+                            </div>
+
+                            <div class="mt-3">
+                                <h5>Note:</h5>
+                                <textarea class="form-control" readonly>{{ $approvement->notes??'' }}</textarea>
+                            </div>                                
+>>>>>>> 0c563c2bed604c36f19ab625ebd98d2f8a2320c7
                         </div>
                        
                     </div>
