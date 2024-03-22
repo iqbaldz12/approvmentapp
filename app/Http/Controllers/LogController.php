@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Log;
 use Illuminate\Http\Request;
+use App\Models\Log;
 
 class LogController extends Controller
 {
@@ -10,7 +10,7 @@ class LogController extends Controller
     public function log(Request $request, string $task_id)
     
     {
-        $logs = Log::all();
+    $logs = Log::all();
     $approvement = approvement::where('task_id', $task_id)->latest()->first();
     $step = 1;
 
