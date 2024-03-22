@@ -18,30 +18,26 @@
                     <div class="card border-0 shadow-sm rounded">
                         <div class="card-body">
                             <hr>
-                            <h4>{{ $task->tasks_name }}</h4>
+                            <h5> name Task</h5>
+                                <p class="tmt-3">{{ $task->tasks_name }}</p>
+                            
+                            <h5> Description</h5>
                             <p class="tmt-3">
                                 {{ $task->description }}
                             </p>
-                            <div class="form-group">
-                                <label class="font-weight-bold">FILE</label>
-                                <input type="file" class="form-control @error('file') is-invalid @enderror"
-                                    name="file">
-
-                                @error('file')
-                                    <div class="alert alert-danger mt-2">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
-                            </div>
+                            <h5> Attachment</h5>
+                            <a href="{{ url('/storage/tasks/' . $task->file) }}" 
+                                target="_blank">file</a>
                         </div>
                     </div>
+                    <a class="btn btn-primary" href="{{ url('/tasks') }}" role="button">Back</a> 
                 </div>
             </div>
         </div>
+    </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     </body>
 
     </html>
-</div>
