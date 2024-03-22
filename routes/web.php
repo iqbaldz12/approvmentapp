@@ -4,6 +4,7 @@ use App\Http\Controllers\ApprovementController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\TaskController;
+use App\Http\Controllers\LogController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 

@@ -8,11 +8,13 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
-class Approvement extends Model
+class Log extends Model
 {
-    use HasFactory, HasUuids;
-
+    use HasFactory;
+    
+    protected  $table = 'approvements';
     protected $fillable = [
+
         'task_id',
         'approved_by_id',
         'step',
@@ -22,7 +24,7 @@ class Approvement extends Model
 
     public function user(): BelongsTo
     {
-        return $this->belongsTo(User::class,'approved_by_id' );
+        return $this->belongsTo(user::class,'approved_by_id' );
     }
 
     public function approvement(): HasMany
