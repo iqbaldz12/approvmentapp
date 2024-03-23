@@ -100,11 +100,7 @@
                                                 
                                                 @if(auth()->user()->role == 'manager')
                                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal{{$task->id}}">approvement </button>
-<<<<<<< HEAD
                                                 @if(@$task->approvement()->latest()->first()->approved_by_id ===  auth()->user()->where('role', 'employee')->first()->id && @$task->approvement()->latest()->first()->status ===  'rejected')
-=======
-                                                @if(@$task->approvement()->latest()->first()->approved_by_id ===  auth()->user()->where('role', 'manager')->first()->id && @$task->approvement()->latest()->first()->status ===  'rejected')
->>>>>>> 0c563c2bed604c36f19ab625ebd98d2f8a2320c7
                                                 <a href="{{ route('tasks.edit', $task->id) }}"
                                                     class="btn btn-sm btn-warning">EDIT</a>
                                                     @csrf
