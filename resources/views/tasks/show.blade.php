@@ -48,27 +48,39 @@
                                 </p>
                                 
                             </div>
-                       
+
                             <div class="mt-3">
                                 <h5>Note:</h5>
                                 <textarea class="form-control" readonly>{{ $approvement->notes??'' }}</textarea>
-                            </div>      
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>Task_id </th>
-                                        <th>Approved_By_ID</th>
-                                        <th>Step</th>
-                                        <th>Status</th>
-                                        <th>Note</th>
-                                    </tr>
-                                </thead>
-                              
-                    
-                            </table>                  
-                        </div>
-                       
+                            </div>    
+                            <div class="mt-3">
+                                <h5>Log Entries:</h5>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>Approvement ID</th>
+                                            <th>Task ID</th>
+                                            <th>User ID</th>
+                                            <th>step</th>
+                                            <th>status</th>
+                                            <th>Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($logs as $log)
+                                            <tr>
+                                                <td>{{ $log->approvement_id }}</td>
+                                                <td>{{ $log->task_id }}</td>
+                                                <td>{{ $log->approved_by_id}}</td>
+                                                <td>{{ $log->step }}</td>
+                                                <td>{{ $log->status }}</td>
+                                                <td>{{ $log->notes }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+      
                     </div>
                     <a class="btn btn-primary" href="{{ url('/tasks') }}" role="button">Back</a> 
                 </div>

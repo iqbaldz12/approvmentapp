@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Log;
 use App\Models\Approvement;
 
 
@@ -53,17 +54,16 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
-
         $task = Task::findOrFail($id);
+        $logs = Log::where('task_id', $id)->get();
         $approvement = Approvement::where('task_id', $id)->latest()->first();
         
-        return view('tasks.show', compact('task', 'approvement'));
+        return view('tasks.show', compact('task', 'approvement', 'logs'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.

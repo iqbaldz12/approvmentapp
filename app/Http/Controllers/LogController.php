@@ -1,31 +1,21 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
-use App\Models\Log;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Log; 
+use App\Events\LogCreated; // Import event LogCreated
 
 class LogController extends Controller
 {
-
-    public function log(Request $request, string $task_id)
-    
+    public function log( $task_id)
     {
-    $logs = Log::all();
-    $approvement = approvement::where('task_id', $task_id)->latest()->first();
-    $step = 1;
-
-    if ($approvement) {
-        $step = $approvement->step + 1;
+        
+        $logs = Log::where('task_id', $id)->get();
+        return view('tasks.log', compact('logs'));
+        
     }
+    
 
-    approvement::create([
-        'task_id' => $task_id,
-        'approved_by_id' => Auth::user()->id,
-        'step' => $step,
-        'status' => $request->status,
-        'notes' => $request->note??"-",
-    ]);
-
-    return redirect('tasks');
-}
 }
