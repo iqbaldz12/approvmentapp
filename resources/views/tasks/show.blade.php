@@ -58,22 +58,23 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Approvement ID</th>
-                                            <th>Task ID</th>
-                                            <th>User ID</th>
-                                            <th>step</th>
                                             <th>status</th>
+                                            <th>Approved By</th>
+                                            <th>Update by</th>
+                                            <th>Create at</th>
+                                            <th>step</th>
                                             <th>Notes</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($logs as $log)
                                             <tr>
-                                                <td>{{ $log->approvement_id }}</td>
-                                                <td>{{ $log->task_id }}</td>
-                                                <td>{{ $log->approved_by_id}}</td>
-                                                <td>{{ $log->step }}</td>
                                                 <td>{{ $log->status }}</td>
+                                                {{-- <td>{{ ucfirst($task->approvement()->latest()->first()->user->username) }}</td> --}}
+                                                <td>{{ $log->approved_by_id}}</td>
+                                                <td>{{ $log->updated_at }}</td>
+                                                <td>{{ $log->created_at }}</td>
+                                                <td>{{ $log->step }}</td>
                                                 <td>{{ $log->notes }}</td>
                                             </tr>
                                         @endforeach
