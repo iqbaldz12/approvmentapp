@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 <x-default-layout>
 
+=======
+<<<<<<< HEAD
+<x-default-layout>
+
+=======
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,6 +22,38 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url('/') }}">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="{{ url('/tasks') }}">Task</a>
+              </li>
+              <li class="nav-item">
+                @if ( Auth::user()->role == 'admin' )
+                <a  class="nav-link active"  href="{{ url('/users') }}">User</a>
+                             
+                 @endif
+              </li>
+          </div>
+        </div>
+      </nav>
+    
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 </head>
 
 <body style="background: lightgray">
@@ -87,5 +127,13 @@
 </body>
 
 </html>
+<<<<<<< HEAD
 
 </x-default-layout>
+=======
+<<<<<<< HEAD
+
+</x-default-layout>
+=======
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8

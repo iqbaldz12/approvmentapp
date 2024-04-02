@@ -1,5 +1,13 @@
+<<<<<<< HEAD
 <x-default-layout>
 
+=======
+<<<<<<< HEAD
+<x-default-layout>
+
+=======
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 <!DOCTYPE html>
 <html lang="en">
 
@@ -85,5 +93,13 @@
 </body>
 
 </html>
+<<<<<<< HEAD
 
 </x-default-layout>
+=======
+<<<<<<< HEAD
+
+</x-default-layout>
+=======
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8

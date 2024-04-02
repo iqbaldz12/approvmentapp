@@ -3,6 +3,13 @@
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\SyslogUdpHandler;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+use Monolog\Processor\PsrLogMessageProcessor;
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 
 return [
 
@@ -61,6 +68,13 @@ return [
             'driver' => 'single',
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            'replace_placeholders' => true,
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         ],
 
         'daily' => [
@@ -68,6 +82,13 @@ return [
             'path' => storage_path('logs/laravel.log'),
             'level' => env('LOG_LEVEL', 'debug'),
             'days' => 14,
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            'replace_placeholders' => true,
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         ],
 
         'slack' => [
@@ -76,6 +97,13 @@ return [
             'username' => 'Laravel Log',
             'emoji' => ':boom:',
             'level' => env('LOG_LEVEL', 'critical'),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            'replace_placeholders' => true,
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         ],
 
         'papertrail' => [
@@ -87,6 +115,13 @@ return [
                 'port' => env('PAPERTRAIL_PORT'),
                 'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
             ],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            'processors' => [PsrLogMessageProcessor::class],
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         ],
 
         'stderr' => [
@@ -97,16 +132,38 @@ return [
             'with' => [
                 'stream' => 'php://stderr',
             ],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            'processors' => [PsrLogMessageProcessor::class],
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         ],
 
         'syslog' => [
             'driver' => 'syslog',
             'level' => env('LOG_LEVEL', 'debug'),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            'facility' => LOG_USER,
+            'replace_placeholders' => true,
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         ],
 
         'errorlog' => [
             'driver' => 'errorlog',
             'level' => env('LOG_LEVEL', 'debug'),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            'replace_placeholders' => true,
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         ],
 
         'null' => [

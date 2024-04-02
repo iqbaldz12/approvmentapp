@@ -6,8 +6,19 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Task;
+<<<<<<< HEAD
 use App\Models\Approvement;
 
+=======
+<<<<<<< HEAD
+use App\Models\Approvement;
+use App\Models\Log;
+=======
+use App\Models\Log;
+use App\Models\Approvement;
+
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 
 class TaskController extends Controller
 {
@@ -45,6 +56,13 @@ class TaskController extends Controller
             'tasks_name'     => $request->tasks_name,
             'description'    => $request->description,
             'file'          => $file->hashName(),
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            'status'        => $request->status,
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
             'user_id'       => Auth::user()->id
         ]);
 
@@ -52,6 +70,10 @@ class TaskController extends Controller
         return redirect()->route('tasks.index')->with(['success' => 'Data Berhasil Disimpan!']);
     }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     /**
      * Display the specified resource.
      */
@@ -59,10 +81,30 @@ class TaskController extends Controller
     {
 
         $task = Task::findOrFail($id);
+<<<<<<< HEAD
         $approvement = Approvement::where('task_id', $id)->latest()->first();
         
         return view('tasks.show', compact('task', 'approvement'));
     }
+=======
+        $logs = Log::where('task_id', $id)->get();
+        $approvement = Approvement::where('task_id', $id)->latest()->first();
+
+        return view('tasks.show', compact('task', 'approvement', 'logs'));
+    }
+=======
+
+    public function show(string $id)
+    {
+        $task = Task::findOrFail($id);
+        $logs = Log::where('task_id', $id)->get();
+        $approvement = Approvement::where('task_id', $id)->latest()->first();
+        
+        return view('tasks.show', compact('task', 'approvement', 'logs'));
+    }
+    
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 
     /**
      * Show the form for editing the specified resource.

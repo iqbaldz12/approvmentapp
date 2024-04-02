@@ -1,4 +1,11 @@
+<<<<<<< HEAD
 <x-default-layout>
+=======
+<<<<<<< HEAD
+<x-default-layout>
+=======
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +30,15 @@
                             @csrf
 
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label class="font-weight-bold">Fullname</label>
+=======
+<<<<<<< HEAD
+                                <label class="font-weight-bold">Fullname</label>
+=======
+                                <label class="font-weight-bold">fullname</label>
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
                                 <input type="text" class="form-control @error('fullname') is-invalid @enderror"
                                     name="fullname" value="{{ old('fullname') }}" placeholder="input name">
 
@@ -36,7 +51,15 @@
                             </div>
 
                             <div class="form-group">
+<<<<<<< HEAD
                                 <label class="font-weight-bold">Username</label>
+=======
+<<<<<<< HEAD
+                                <label class="font-weight-bold">Username</label>
+=======
+                                <label class="font-weight-bold">username</label>
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
                                 <textarea class="form-control @error('username') is-invalid @enderror" name="username" rows="5"
                                     placeholder="input username">{{ old('username') }}</textarea>
 
@@ -85,5 +108,13 @@
 </body>
 
 </html>
+<<<<<<< HEAD
 
 </x-default-layout>
+=======
+<<<<<<< HEAD
+
+</x-default-layout>
+=======
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8

@@ -28,14 +28,31 @@ return [
     | sending an e-mail. You will specify which one you are using for your
     | mailers below. You are free to add additional mailers as required.
     |
+<<<<<<< HEAD
     | Supported: "smtp", "sendmail", "mailgun", "ses",
     |            "postmark", "log", "array", "failover"
+=======
+<<<<<<< HEAD
+    | Supported: "smtp", "sendmail", "mailgun", "ses",
+    |            "postmark", "log", "array", "failover"
+=======
+    | Supported: "smtp", "sendmail", "mailgun", "ses", "ses-v2",
+    |            "postmark", "log", "array", "failover", "roundrobin"
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     |
     */
 
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+            'url' => env('MAIL_URL'),
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
             'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
@@ -49,12 +66,34 @@ return [
             'transport' => 'ses',
         ],
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         'mailgun' => [
             'transport' => 'mailgun',
         ],
 
         'postmark' => [
             'transport' => 'postmark',
+<<<<<<< HEAD
+=======
+=======
+        'postmark' => [
+            'transport' => 'postmark',
+            // 'message_stream_id' => null,
+            // 'client' => [
+            //     'timeout' => 5,
+            // ],
+        ],
+
+        'mailgun' => [
+            'transport' => 'mailgun',
+            // 'client' => [
+            //     'timeout' => 5,
+            // ],
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         ],
 
         'sendmail' => [
@@ -78,6 +117,20 @@ return [
                 'log',
             ],
         ],
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+
+        'roundrobin' => [
+            'transport' => 'roundrobin',
+            'mailers' => [
+                'ses',
+                'postmark',
+            ],
+        ],
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     ],
 
     /*

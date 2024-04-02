@@ -1,6 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Facade;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+use Illuminate\Support\ServiceProvider;
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 
 return [
 
@@ -140,7 +147,15 @@ return [
 
     'maintenance' => [
         'driver' => 'file',
+<<<<<<< HEAD
         // 'store'  => 'redis',
+=======
+<<<<<<< HEAD
+        // 'store'  => 'redis',
+=======
+        // 'store' => 'redis',
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     ],
 
     /*
@@ -154,6 +169,10 @@ return [
     |
     */
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     'providers' => [
 
         /*
@@ -182,6 +201,12 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+<<<<<<< HEAD
+=======
+=======
+    'providers' => ServiceProvider::defaultProviders()->merge([
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         /*
          * Package Service Providers...
          */
@@ -189,14 +214,30 @@ return [
         /*
          * Application Service Providers...
          */
+<<<<<<< HEAD
         App\Providers\HelperServiceProvider::class,
+=======
+<<<<<<< HEAD
+        App\Providers\HelperServiceProvider::class,
+=======
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+<<<<<<< HEAD
 
     ],
+=======
+<<<<<<< HEAD
+
+    ],
+=======
+    ])->toArray(),
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 
     /*
     |--------------------------------------------------------------------------
@@ -210,7 +251,15 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+<<<<<<< HEAD
         // 'ExampleClass' => App\Example\ExampleClass::class,
+=======
+<<<<<<< HEAD
+        // 'ExampleClass' => App\Example\ExampleClass::class,
+=======
+        // 'Example' => App\Facades\Example::class,
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     ])->toArray(),
 
 ];

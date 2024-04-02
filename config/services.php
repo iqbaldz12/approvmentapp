@@ -31,6 +31,10 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     'google' => [
         'client_id' => env('GOOGLE_CLIENT_ID'),
         'client_secret' => env('GOOGLE_CLIENT_SECRET'),
@@ -42,4 +46,9 @@ return [
         'client_secret' => env('FACEBOOK_CLIENT_SECRET'),
         'redirect'      => '/auth/redirect/facebook',
     ],
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
 ];

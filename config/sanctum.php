@@ -41,8 +41,18 @@ return [
     |--------------------------------------------------------------------------
     |
     | This value controls the number of minutes until an issued token will be
+<<<<<<< HEAD
     | considered expired. If this value is null, personal access tokens do
     | not expire. This won't tweak the lifetime of first-party sessions.
+=======
+<<<<<<< HEAD
+    | considered expired. If this value is null, personal access tokens do
+    | not expire. This won't tweak the lifetime of first-party sessions.
+=======
+    | considered expired. This will override any values set in the token's
+    | "expires_at" attribute, but first-party sessions are not affected.
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     |
     */
 
@@ -50,6 +60,27 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+    | Token Prefix
+    |--------------------------------------------------------------------------
+    |
+    | Sanctum can prefix new tokens in order to take advantage of numerous
+    | security scanning initiatives maintained by open source platforms
+    | that notify developers if they commit tokens into repositories.
+    |
+    | See: https://docs.github.com/en/code-security/secret-scanning/about-secret-scanning
+    |
+    */
+
+    'token_prefix' => env('SANCTUM_TOKEN_PREFIX', ''),
+
+    /*
+    |--------------------------------------------------------------------------
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     | Sanctum Middleware
     |--------------------------------------------------------------------------
     |
@@ -60,8 +91,19 @@ return [
     */
 
     'middleware' => [
+<<<<<<< HEAD
         'verify_csrf_token' => App\Http\Middleware\VerifyCsrfToken::class,
         'encrypt_cookies' => App\Http\Middleware\EncryptCookies::class,
+=======
+<<<<<<< HEAD
+        'verify_csrf_token' => App\Http\Middleware\VerifyCsrfToken::class,
+        'encrypt_cookies' => App\Http\Middleware\EncryptCookies::class,
+=======
+        'authenticate_session' => Laravel\Sanctum\Http\Middleware\AuthenticateSession::class,
+        'encrypt_cookies' => App\Http\Middleware\EncryptCookies::class,
+        'verify_csrf_token' => App\Http\Middleware\VerifyCsrfToken::class,
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     ],
 
 ];

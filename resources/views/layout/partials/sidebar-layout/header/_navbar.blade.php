@@ -11,6 +11,7 @@
     <!--begin::User menu-->
     <div class="app-navbar-item ms-1 ms-md-4">
         <!--begin::Menu-wrapper-->
+<<<<<<< HEAD
         <div class="d-flex justify-content-center">
             <div class="dropdown">
                 <button class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px dropdown-toggle" type="button" id="logoutDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,6 +27,16 @@
                 </ul>
             </div>
         </div>        
+=======
+        <div class="dropdown">
+            <button class="btn btn-icon btn-custom btn-icon-muted btn-active-light btn-active-color-primary w-35px h-35px dropdown-toggle" type="button" id="logoutDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                {!! getIcon('element-11', 'fs-2') !!}
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="logoutDropdown">
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+        </div>
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
         <!--end::Menu-wrapper-->
     </div>
     <!--end::User menu-->

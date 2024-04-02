@@ -1,5 +1,14 @@
+<<<<<<< HEAD
 <x-default-layout>
 
+=======
+<<<<<<< HEAD
+<x-default-layout>
+
+=======
+<div>
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
     <!DOCTYPE html>
     <html lang="en">
 
@@ -19,12 +28,31 @@
                     <div class="card border-0 shadow-sm rounded">
                         <div class="card-body">
                             <hr>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
                             <h5> Name Task</h5>
                                 <p class="tmt-3">{{ $task->tasks_name }}</p>
                             <h5> Description</h5>
                                 <p class="tmt-3">{{ $task->description }}</p>
                             <h5> Attachment</h5>
+<<<<<<< HEAD
                             <a href="{{ url('/storage/tasks/' . $task->file) }}" 
+=======
+                            <a href="{{ url('/storage/tasks/' . $task->file) }}"
+=======
+                            <h5> name Task</h5>
+                                <p class="tmt-3">{{ $task->tasks_name }}</p>
+                            
+                            <h5> Description</h5>
+                            <p class="tmt-3">
+                                {{ $task->description }}
+                            </p>
+                            <h5> Attachment</h5>
+                            <a href="{{ url('/storage/tasks/' . $task->file) }}" 
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
                                 target="_blank">file</a>
 
                             <div class="mt-3">
@@ -44,16 +72,69 @@
                                         <strong style="color: #636363">New</strong>
                                     @endif
                                 </p>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+                                
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
                             </div>
 
                             <div class="mt-3">
                                 <h5>Note:</h5>
                                 <textarea class="form-control" readonly>{{ $approvement->notes??'' }}</textarea>
+<<<<<<< HEAD
                             </div>  
                             <hr>
                             <a class="btn btn-primary" href="{{ url('/tasks') }}" role="button">Back</a> 
                         </div>
                     </div>
+=======
+<<<<<<< HEAD
+                            </div>
+=======
+                            </div>    
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+                            <div class="mt-3">
+                                <h5>Log Entries:</h5>
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>status</th>
+                                            <th>Approved By</th>
+                                            <th>Update by</th>
+                                            <th>Create at</th>
+                                            <th>step</th>
+                                            <th>Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($logs as $log)
+                                            <tr>
+                                                <td>{{ $log->status }}</td>
+                                                {{-- <td>{{ ucfirst($task->approvement()->latest()->first()->user->username) }}</td> --}}
+                                                <td>{{ $log->approved_by_id}}</td>
+                                                <td>{{ $log->updated_at }}</td>
+                                                <td>{{ $log->created_at }}</td>
+                                                <td>{{ $log->step }}</td>
+                                                <td>{{ $log->notes }}</td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+<<<<<<< HEAD
+                            <hr>
+                            <a class="btn btn-primary" href="{{ url('/tasks') }}" role="button">Back</a>
+                        </div>
+                    </div>
+=======
+      
+                    </div>
+                    <a class="btn btn-primary" href="{{ url('/tasks') }}" role="button">Back</a> 
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
                 </div>
             </div>
         </div>
@@ -64,5 +145,13 @@
     </body>
 
     </html>
+<<<<<<< HEAD
 
 </x-default-layout>
+=======
+<<<<<<< HEAD
+
+</x-default-layout>
+=======
+>>>>>>> 5a59e6c4d843fc0ba5b4d569831e8e3ed33330a1
+>>>>>>> 8c8decbd13737634609000997c3c5fddf960d7c8
